@@ -1,0 +1,135 @@
+.hero-gradient {
+    background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    z-index: 50;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.carousel {
+    overflow: hidden;
+    position: relative;
+}
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel-slide {
+    min-width: 100%;
+}
+.benefit-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.phone-input.invalid {
+    border-color: #EF4444;
+}
+.error-message {
+    display: none;
+    color: #EF4444;
+    font-size: 0.875rem;
+}
+.error-message.show {
+    display: block;
+}
+.selected-plan-card {
+    background-color: #f0f7ff;
+    border-left: 4px solid #2563eb;
+    transition: all 0.3s ease;
+}
+.selected-plan-card:hover {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.hidden {
+    display: none;
+}
+
+/* Responsive Navbar Adjustments */
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 640px) { /* Mobile */
+    .nav-links {
+        display: none; /* Hidden by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 4rem; /* Position below navbar */
+        left: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 0.5rem 0;
+        z-index: 40; /* Ensure visibility */
+    }
+    .nav-links.show {
+        display: flex; /* Show when toggled */
+    }
+    .nav-links a, .nav-links .relative {
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: left;
+    }
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .hero-gradient {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    .hero-gradient h1 {
+        font-size: 1.5rem;
+    }
+    .hero-gradient p {
+        font-size: 0.875rem;
+    }
+    .selected-plan-card, .benefit-card, #rechargeFormContainer .bg-white {
+        padding: 1rem;
+    }
+    .carousel-slide {
+        padding: 0.5rem;
+    }
+    footer {
+        padding: 2rem 1rem;
+    }
+}
+@media (min-width: 641px) and (max-width: 1023px) { /* Tablet */
+    .nav-links {
+        display: flex; /* Always visible */
+    }
+    .mobile-menu-button {
+        display: none;
+    }
+    .hero-gradient {
+        padding-top: 7rem;
+        padding-bottom: 2.5rem;
+    }
+}
+@media (min-width: 1024px) { /* Desktop */
+    .mobile-menu-button {
+        display: none;
+    }
+    .nav-links {
+        display: flex; /* Always visible */
+    }
+}
+.error {
+    color: red;
+    display: none;
+}
+.error.show {
+    display: block;
+}
