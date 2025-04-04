@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Payment Confirmation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/paymentconformation.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+                </div>
+                <div class="flex items-center space-x-8 nav-links" id="navLinks">
+                    <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                    <a href="/customer/guestPlans.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+                    <a href="/customer/recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+                    <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+                </div>
+                <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-gradient pt-28 pb-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2">Payment Successful!</h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto px-4">
+            Your recharge has been completed successfully. Enjoy your plan!
+        </p>
+    </div>
+
+    <div class="max-w-2xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg p-6">
+            <div class="text-center mb-6">
+                <i class="fas fa-check-circle text-green-500 text-4xl mb-2"></i>
+                <h2 class="text-2xl font-bold text-gray-800">Recharge Confirmed</h2>
+            </div>
+            <!-- paymentconformation.html -->
+<div class="grid grid-cols-1 gap-4 text-gray-700">
+    <div class="flex justify-between">
+        <span class="font-medium">Phone Number:</span>
+        <span id="confirmPhoneNumber">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Plan Name:</span>
+        <span id="confirmPlanName">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Amount:</span>
+        <span id="confirmAmount">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Payment Method:</span>
+        <span id="confirmPaymentMethod">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Transaction ID:</span>
+        <span id="confirmTransactionId">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Date & Time:</span>
+        <span id="confirmDateTime">Loading...</span>
+    </div>
+    <div class="flex justify-between">
+        <span class="font-medium">Validity:</span>
+        <span id="confirmValidity">Loading...</span>
+    </div>
+</div>
+ <div class="mt-6 flex justify-center space-x-4">
+                <button onclick="downloadPDFReceipt()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">
+                    <i class="fas fa-download mr-2"></i>Download Receipt
+                </button>
+                <a href="/customer/plans.html" class="bg-gray-200 hover:bg-gray-300 text-gray-800 py-2 px-6 rounded-lg transition">
+                    <i class="fas fa-arrow-left mr-2"></i>Back to Plans
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="/scripts/paymentconformation.js"></script>
+</body>
+</html>

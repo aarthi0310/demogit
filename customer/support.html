@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Support</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+</head>
+<body class="bg-gray-50">
+    
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="/index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+            </div>
+            <div class="hidden md:flex items-center space-x-8 nav-links" id="navLinks">
+               <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+               <a href="plan1.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+               <a href="recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+               <a href="support.html" class="text-blue-600 font-medium">Support</a>
+            </div>
+            <!-- Mobile Menu Button -->
+            <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu md:hidden" id="mobileMenu">
+            <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+            <a href="/customer/guestPlans.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+            <a href="/customer/recharge.html class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+            <a href="/customer/support.html" class="text-blue-600 font-medium">Support</a>
+        </div>
+    </nav>
+
+    <!-- Support Form Section -->
+    <div class="pt-24 pb-12">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-lg shadow-lg p-4 sm:p-6 lg:p-8">
+                <h1 class="text-2xl sm:text-3xl font-bold text-center mb-6 sm:mb-8 text-blue-600">How can we help you?</h1>
+                
+                <form id="supportForm" class="space-y-4 sm:space-y-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+                        <input type="text" id="name" name="name" 
+                            class="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    </div>
+
+                    <div>
+                        <label for="mobile" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                        <input type="tel" id="mobile" name="mobile" pattern="[0-9]{10}"
+                            class="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                        <p id="mobileError" class="text-red-500 text-sm mt-1 hidden">Please enter a valid 10-digit number</p>
+                    </div>
+
+                    <div>
+                        <label for="issueType" class="block text-sm font-medium text-gray-700 mb-1">Type of Issue</label>
+                        <select id="issueType" name="issueType" 
+                            class="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                            <option value="">Select an issue</option>
+                            <option value="network">Network Issues</option>
+                            <option value="billing">Billing Issues</option>
+                            <option value="plans">Plan Related</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Describe Your Issue</label>
+                        <textarea id="description" name="description" rows="4" 
+                            class="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-400 focus:outline-none"></textarea>
+                    </div>
+
+                    <div class="flex justify-center">
+                        <button type="submit" 
+                            class="bg-blue-600 text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-blue-700 transition">
+                            Submit Request
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div id="faq-section" class="max-w-3xl mx-auto px-4 py-8 sm:py-12">
+        <a href="#faq"></a>
+        <h2 class="text-xl sm:text-2xl font-bold text-blue-600 mb-4 sm:mb-6">Frequently Asked Questions</h2>
+
+        <div class="faq-item">
+            <p class="faq-question">How can I contact customer support?</p>
+            <p class="faq-answer">Email: support@mobi-comm.com</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">Where can I find answers to common issues?</p>
+            <p class="faq-answer">Visit our Support Page for FAQs or Submit request.</p>
+        </div>
+
+        <div class="faq-item">
+            <p class="faq-question">Can I raise a complaint online?</p>
+            <p class="faq-answer">Yes, you can submit a support request on our Support Page.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-6 sm:py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 sm:mb-4">Mobi-Comm</h3>
+                    <p class="text-gray-300 text-sm">Connecting people through innovative telecommunication solutions since 2024.</p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-3 sm:mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="plans.html" class="text-gray-300 hover:text-white transition">Plans & Pricing</a></li>
+                        <li><a href="support.html" class="text-gray-300 hover:text-white transition">Support</a></li>
+                        <li><a href="recharge.html" class="text-gray-300 hover:text-white transition">Recharge</a></li>
+                    </ul>
+                </div>
+                
+                <div class="mt-6 sm:mt-0">
+                    <h3 class="text-lg font-semibold mb-3 sm:mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="h-5 w-5 sm:h-6 sm:w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm3.11 8.295c.001.12.002.24.002.362 0 3.67-2.795 7.9-7.902 7.9a7.85 7.85 0 01-4.249-1.245c.218.026.436.038.658.038 1.29 0 2.477-.44 3.423-1.176a2.78 2.78 0 01-2.592-1.926c.172.034.348.051.529.051.255 0 .503-.035.739-.1a2.776 2.776 0 01-2.225-2.722v-.034c.375.207.803.332 1.258.346a2.774 2.774 0 01-.86-3.703 7.888 7.888 0 005.723 2.9 2.774 2.774 0 014.728-2.524 5.56 5.56 0 001.763-.673 2.785 2.785 0 01-1.22 1.534 5.56 5.56 0 001.593-.436 5.617 5.617 0 01-1.38 1.437z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-3 sm:mt-4 text-xs sm:text-sm">
+                        <p>Customer Service: 1-800-MOBICOM</p>
+                        <p>Email: support@mobicomm.com</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700 text-xs sm:text-sm text-center text-gray-400">
+                <p>© 2025 Mobi-Comm Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="/scripts/support.js"></script>
+</html>

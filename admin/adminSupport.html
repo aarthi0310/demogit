@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm Support Management</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/adminSupport.css">
+</head>
+<body class="bg-gray-100">
+    <!-- Mobile Header with Menu Toggle -->
+    <div class="md:hidden bg-blue-800 p-4 flex justify-between items-center">
+        <button id="mobileMenuToggle" class="text-white">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+        <span class="text-xl font-bold text-white">Admin Panel</span>
+        <a href="index.html" class="text-white">
+            <i class="fas fa-sign-out-alt text-xl"></i>
+        </a>
+    </div>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="fixed left-0 top-0 w-64 h-full bg-blue-800 p-4 z-50 mobile-sidebar md:transform-none md:block">
+        <div class="flex items-center mb-8 mt-2">
+            <img src="/assets/admin.jpeg" alt="Mobi-Comm Logo" class="h-8 w-8 mr-2">
+            <span class="text-xl font-bold text-white">Admin Panel</span>
+        </div>
+        
+        <nav class="space-y-4">
+            <a href="admindashboard.html#dashboard" class="sidebar-nav flex items-center text-white p-2 rounded transition-colors">
+                <i class="fas fa-tachometer-alt w-6"></i>
+                <span>Dashboard</span>
+            </a>
+            <a href="admindashboard.html#plans" class="sidebar-nav flex items-center text-white p-2 rounded transition-colors">
+                <i class="fas fa-list w-6"></i>
+                <span>Plans Management</span>
+            </a>
+            <a href="customerdetails.html" class="sidebar-nav flex items-center text-white p-2 rounded transition-colors">
+                <i class="fas fa-users w-6"></i>
+                <span>Customer Details</span>
+            </a>
+            <a href="expiry.html" class="sidebar-nav flex items-center text-white p-2 rounded transition-colors">
+                <i class="fas fa-bell w-6"></i><span>Expiring Plans Alert</span>
+            </a>
+            <a href="adminSupport.html" class="sidebar-nav flex items-center text-white p-2 rounded transition-colors bg-blue-900">
+                <i class="fas fa-headset w-6"></i>
+                <span>Support Management</span>
+            </a>
+        </nav>
+    </div>
+
+    <!-- Overlay for mobile sidebar -->
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+    <!-- Main Content -->
+    <div class="md:ml-64 p-4 md:p-8 mt-0 md:mt-0">
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h1 class="text-xl md:text-2xl font-bold text-gray-800">Support Management</h1>
+            <div class="hidden md:flex items-center">
+                <button class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                    <i class="fas fa-sign-out-alt mr-2"></i> <a href="index.html">Logout</a>
+                </button>
+            </div>
+        </div>
+
+        <!-- Dashboard Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-1 gap-4 md:gap-6 mb-6">
+            <div class="bg-white rounded-lg shadow-md p-4 md:p-6 flex items-center card-zoom">
+                <div class="rounded-full bg-blue-100 p-2 md:p-3 mr-3 md:mr-4">
+                    <i class="fas fa-ticket-alt text-blue-600 text-lg md:text-xl"></i>
+                </div>
+                <div>
+                    <p class="text-xs md:text-sm text-gray-500">Total Tickets</p>
+                    <p class="text-lg md:text-2xl font-bold" id="totalTickets">0</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search and Filters -->
+        <div class="bg-white rounded-lg shadow-md p-4 md:p-6 mb-6">
+            <div class="mb-2 md:hidden">
+                <button id="toggleFilters" class="w-full flex justify-between items-center p-2 bg-gray-100 rounded">
+                    <span class="font-medium">Search & Filters</span>
+                    <i class="fas fa-chevron-down" id="filterIcon"></i>
+                </button>
+            </div>
+            <div id="filterContainer" class="hidden md:block">
+                <div class="flex flex-col md:flex-row md:items-center gap-4">
+                    <div class="flex-grow">
+                        <div class="relative">
+                            <input type="text" id="searchTickets" placeholder="Search..." 
+                                class="w-full p-2 md:p-3 pl-8 md:pl-10 border border-gray-300 rounded-lg">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3">
+                                <i class="fas fa-search text-gray-400"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col md:flex-row flex-wrap gap-2">
+                        <select id="statusFilter" class="p-2 md:p-3 border border-gray-300 rounded-lg bg-white">
+                            <option value="">All Status</option>
+                            <option value="New">New</option>
+                            <option value="In Progress">In Progress</option>
+                            <option value="Resolved">Resolved</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                        <select id="priorityFilter" class="p-2 md:p-3 border border-gray-300 rounded-lg bg-white">
+                            <option value="">All Priority</option>
+                            <option value="High">High</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Low">Low</option>
+                        </select>
+                        <select id="issueTypeFilter" class="p-2 md:p-3 border border-gray-300 rounded-lg bg-white">
+                            <option value="">All Issue Types</option>
+                            <option value="network">Network Issues</option>
+                            <option value="billing">Billing Issues</option>
+                            <option value="plans">Plan Related</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <div class="flex space-x-2 mt-2 md:mt-0">
+                            <button id="applyFilters" class="bg-blue-600 text-white px-3 md:px-4 py-2 rounded hover:bg-blue-700 flex-grow md:flex-grow-0">
+                                Apply
+                            </button>
+                            <button id="resetFilters" class="bg-gray-200 text-gray-800 px-3 md:px-4 py-2 rounded hover:bg-gray-300 flex-grow md:flex-grow-0">
+                                Reset
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Support Tickets -->
+        <div class="bg-white rounded-lg shadow-md p-4 md:p-6 mb-6">
+            <!-- Mobile Cards View -->
+            <div class="md:hidden space-y-4" id="mobileTicketsView">
+                <!-- Mobile ticket cards will be loaded here -->
+            </div>
+
+            <!-- Desktop Table View -->
+            <div class="hidden md:block overflow-x-auto">
+                <table class="min-w-full">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Ticket ID</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Issue Type</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Submitted</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white divide-y divide-gray-200" id="ticketsTableBody">
+                        <!-- Ticket data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-6 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-sm text-gray-700 mb-4 md:mb-0">
+                    Showing <span id="ticketsShown">0</span> out of <span id="totalTicketsCount">0</span> tickets
+                </p>
+                <div class="flex items-center space-x-2">
+                    <button id="prevPage" class="px-3 py-1 rounded border border-gray-300 disabled:opacity-50">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="currentPage" class="px-3 py-1 bg-blue-600 text-white rounded">1</span>
+                    <button id="nextPage" class="px-3 py-1 rounded border border-gray-300">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ticket Details Modal -->
+    <div id="ticketModal" class="modal">
+        <div class="modal-content max-w-2xl">
+            <div class="flex justify-between items-center mb-6">
+                <h2 class="text-xl font-bold" id="ticketTitle">Ticket Details</h2>
+                <button onclick="closeTicketModal()" class="text-gray-500 hover:text-gray-700">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-b pb-2">Ticket Information</h3>
+                    <div class="space-y-3">
+                        <p><span class="font-medium">Ticket ID:</span> <span id="modalTicketId"></span></p>
+                        <p><span class="font-medium">Status:</span> <span id="modalStatus"></span></p>
+                        <p><span class="font-medium">Priority:</span> <span id="modalPriority"></span></p>
+                        <p><span class="font-medium">Issue Type:</span> <span id="modalIssueType"></span></p>
+                        <p><span class="font-medium">Submitted:</span> <span id="modalSubmitted"></span></p>
+                        <p><span class="font-medium">Last Updated:</span> <span id="modalUpdated"></span></p>
+                        <p><span class="font-medium">Assigned To:</span> <span id="modalAssigned"></span></p>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4 border-b pb-2">Customer Information</h3>
+                    <div class="space-y-3">
+                        <p><span class="font-medium">Name:</span> <span id="modalName"></span></p>
+                        <p><span class="font-medium">Mobile:</span> <span id="modalMobile"></span></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-4 border-b pb-2">Issue Description</h3>
+                <p id="modalDescription" class="text-gray-700"></p>
+            </div>
+            
+            <div class="mb-6">
+                <h3 class="text-lg font-semibold mb-4 border-b pb-2">Communication History</h3>
+                <div id="modalCommunication" class="space-y-4">
+                    <!-- Communication history will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/scripts/adminSupport.js"></script>
+</html>

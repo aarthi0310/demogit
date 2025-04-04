@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Recharge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/recharge.css">
+</head>
+<body class="bg-gray-50">
+
+    <!-- Navbar -->
+<nav class="bg-white shadow-lg fixed w-full z-50">
+    <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+        <div class="flex items-center">
+            <a href="index.html">
+                <span class="text-xl font-bold text-blue-600">Mobi-Comm</span>
+            </a>
+        </div>
+        <div class="flex items-center space-x-8 nav-links" id="navLinks">
+            <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+            <a href="/customer/guestPlans.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+            <a href="/customer/recharge.html" class="text-blue-600 font-medium">Recharge</a>
+            <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+            
+            <!-- Account Dropdown -->
+            <div class="relative" id="accountDropdown">
+                <button class="flex items-center text-gray-600 hover:text-blue-600 transition" id="accountDropdownButton">
+                    <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                </button>
+                <!-- Dropdown Menu -->
+                <div class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg hidden z-50" id="dropdownMenu">
+                    <a href="login.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-150 flex items-center">
+                        <!-- Login Icon -->
+                        <svg class="h-5 w-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                        </svg>
+                        Login
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+            <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </div>
+</nav>
+
+    
+    <!-- Hero Section -->
+    <div class="hero-gradient pt-28 pb-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2"> Quick Recharge</h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto px-4">
+            Recharge in seconds and stay connected with your loved ones
+        </p>
+    </div>
+
+    <!-- Selected Plan Section -->
+    <div id="selectedPlanContainer" class="max-w-4xl mx-auto -mt-6 px-4 mb-4 hidden">
+        <div class="selected-plan-card rounded-lg shadow-lg p-6">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold text-gray-800">Selected Plan</h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <h3 id="selectedPlanName" class="text-xl font-semibold text-gray-800 mb-2">--</h3>
+                    <div class="flex items-center mb-1">
+                        <i class="fas fa-rupee-sign text-gray-600 mr-2"></i>
+                        <span class="text-gray-600">Price:</span>
+                        <span id="selectedPlanPrice" class="ml-1 font-medium">--</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center mb-1">
+                        <i class="fas fa-wifi text-gray-600 mr-2"></i>
+                        <span class="text-gray-600">Data:</span>
+                        <span id="selectedPlanData" class="ml-1 font-medium">--</span>
+                    </div>
+                    <div class="flex items-center mb-1">
+                        <i class="fas fa-calendar-alt text-gray-600 mr-2"></i>
+                        <span class="text-gray-600">Validity:</span>
+                        <span id="selectedPlanValidity" class="ml-1 font-medium">--</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recharge Form Section -->
+    <div class="max-w-4xl mx-auto px-4" id="rechargeFormContainer">
+        <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6">Enter Mobile Number</h2>
+            <form id="rechargeForm" class="space-y-4">
+                <div>
+                    <label for="phoneNumber" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <span class="text-gray-500 sm:text-sm">+91</span>
+                        </div>
+                        <input
+                            type="text"
+                            id="phoneNumber"
+                            maxlength="10"
+                            placeholder="Enter 10 digit mobile number"
+                            class="phone-input pl-12 block w-full px-3 py-3 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+                        >
+                    </div>
+                    <p id="phoneError" class="error-message mt-1">Please enter a valid 10 digit mobile number</p>
+                </div>
+                <div class="pt-4">
+                    <button
+                        type="submit"
+                        id="rechargeButton"
+                        class="w-full bg-blue-600 hover:bg-blue-700 text-white py-3 px-4 rounded-lg transition focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    >
+                        Continue
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Benefits Carousel Section -->
+    <div class="max-w-6xl mx-auto px-4 mb-12">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Recharge Benefits</h2>
+        <div class="carousel relative mb-6">
+            <div class="carousel-container">
+                <div class="carousel-slide p-2">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-700 rounded-lg shadow-lg p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Seamless Experience!</h3>
+                        <p class="mb-4">User-friendly platform for hassle-free recharges.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide p-2">
+                    <div class="bg-gradient-to-r from-purple-500 to-indigo-700 rounded-lg shadow-lg p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Multiple Payment Options!</h3>
+                        <p class="mb-4">Pay via UPI, debit/credit cards, net banking.</p>
+                    </div>
+                </div>
+                <div class="carousel-slide p-2">
+                    <div class="bg-gradient-to-r from-green-500 to-teal-700 rounded-lg shadow-lg p-6 text-white">
+                        <h3 class="text-xl font-bold mb-2">Instant Activation!</h3>
+                        <p class="mb-4">Recharge processed in seconds without delays.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-prev absolute left-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                </svg>
+            </button>
+            <button class="carousel-next absolute right-0 top-1/2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md z-10">
+                <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+            </button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="benefit-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-blue-100 rounded-full p-3 mr-3">
+                        <i class="fas fa-bolt text-blue-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Instant Recharge</h3>
+                </div>
+                <p class="text-gray-600">Recharge instantly 24/7, no waiting time.</p>
+            </div>
+            <div class="benefit-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-green-100 rounded-full p-3 mr-3">
+                        <i class="fas fa-shield-alt text-green-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Secure Transactions</h3>
+                </div>
+                <p class="text-gray-600">Encrypted and fully secured transactions.</p>
+            </div>
+            <div class="benefit-card bg-white p-6 rounded-lg shadow-md transition duration-300">
+                <div class="flex items-center mb-4">
+                    <div class="bg-yellow-100 rounded-full p-3 mr-3">
+                        <i class="fas fa-gift text-yellow-600 text-xl"></i>
+                    </div>
+                    <h3 class="font-semibold text-lg">Convenience</h3>
+                </div>
+                <p class="text-gray-600">Recharge from anywhere, anytime.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <p class="font-semibold text-lg">Join Mobi-Comm for Seamless Experience</p>
+                <p class="text-gray-400">Fast, secure, and reliable recharge services</p>
+            </div>
+            <div class="flex justify-center space-x-8">
+                <a href="support.html" class="text-white hover:text-blue-600">Terms of Service</a>
+                <a href="support.html" class="text-white hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/scripts/qucikrecharge.js"></script>
+</body>
+</html>

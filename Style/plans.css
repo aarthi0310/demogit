@@ -1,0 +1,159 @@
+.hero-gradient {
+    background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+}
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    min-width: 160px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+    z-index: 50;
+}
+.dropdown-menu.show {
+    display: block;
+}
+.plan-highlight {
+    background-color: #f0f9ff;
+    border-left: 4px solid #2563eb;
+}
+.payment-option:hover {
+    background-color: #f0f7ff;
+    border-color: #2563eb;
+}
+.payment-option.selected {
+    background-color: #f0f7ff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5);
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+}
+.payment-form {
+    display: none;
+}
+.payment-form.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) { /* Mobile */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        padding: 0.5rem 0;
+        z-index: 40;
+    }
+    .nav-links.show {
+        display: flex;
+    }
+    .nav-links a, .nav-links .relative {
+        padding: 0.75rem 1rem;
+        width: 100%;
+        text-align: left;
+    }
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .hero-gradient {
+        padding-top: 6rem;
+        padding-bottom: 2rem;
+    }
+    .hero-gradient h1 {
+        font-size: 1.5rem;
+    }
+    .hero-gradient p {
+        font-size: 0.875rem;
+    }
+    #selected-plan-container, .p-6 {
+        padding: 1rem;
+    }
+    #selected-plan-container h2 {
+        font-size: 1.25rem;
+    }
+    .plan-highlight {
+        padding: 1rem;
+    }
+    .payment-option {
+        padding: 1rem;
+    }
+    .payment-option h3 {
+        font-size: 1rem;
+    }
+    .payment-option p {
+        font-size: 0.875rem;
+    }
+    .payment-form {
+        padding: 1rem;
+    }
+    .payment-form h3 {
+        font-size: 1rem;
+    }
+    .payment-form input, .payment-form select {
+        font-size: 0.875rem;
+    }
+    .payment-form button {
+        width: 100%;
+        padding: 0.75rem;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) { /* Tablet */
+    .nav-links {
+        display: flex;
+    }
+    .mobile-menu-button {
+        display: none;
+    }
+    .hero-gradient {
+        padding-top: 7rem;
+        padding-bottom: 2.5rem;
+    }
+    .hero-gradient h1 {
+        font-size: 2rem;
+    }
+    .hero-gradient p {
+        font-size: 1rem;
+    }
+    #selected-plan-container, .p-6 {
+        padding: 1.5rem;
+    }
+    #selected-plan-container h2 {
+        font-size: 1.5rem;
+    }
+    .payment-option {
+        padding: 1.5rem;
+    }
+    .payment-form {
+        padding: 1.5rem;
+    }
+    .payment-form h3 {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) { /* Desktop */
+    .mobile-menu-button {
+        display: none;
+    }
+    .nav-links {
+        display: flex;
+    }
+}

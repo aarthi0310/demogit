@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/Style/login.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Mobi-Comm</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/customer/guestPlans.html">Plans</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/customer/recharge.html">Recharge</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/customer/support.html">Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container login-container pt-5">
+        <div class="row">
+            <div class="col-md-6 left-panel">
+                <div>
+                    <div class="main-title">Login</div>
+                    <div class="sub-title">Access made easy<br>with OTP</div>
+                </div>
+            </div>
+            <div class="col-md-6 right-panel">
+                <div class="floating-shapes">
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                    <div class="shape"></div>
+                </div>
+                <div class="otp-notification" id="otpNotification">
+                    <p class="mb-0 text-muted">Your OTP:</p>
+                    <div class="otp-code" id="otpDisplay"></div>
+                    <p class="otp-timer" id="otpTimer">Expires in <span id="timerSeconds">30</span>s</p>
+                </div>
+            </div>
+            <div class="center-panel">
+                <div class="panel-header">
+                    <h5 class="mb-0">Welcome Back!</h5>
+                    <p class="text-white-75 mt-1" id="header-subtitle">Login with OTP Verification</p>
+                </div>
+                <div class="panel-body">
+                    <div id="phoneForm">
+                        <form id="mobileForm">
+                            <div class="mb-3">
+                                <label for="mobile" class="form-label fw-semibold">Mobile Number</label>
+                                <input type="tel" class="form-control" id="mobile" placeholder="Enter 10-digit number">
+                                <p id="emptyError" class="error-message">Mobile number cannot be empty.</p>
+                                <p id="digitError" class="error-message">Mobile number must be exactly 10 digits.</p>
+                                <p id="notRegisteredError" class="error-message">Please enter a valid Mobi-Comm number.</p>
+                            </div>
+                            <button type="submit" class="login-btn">Send OTP</button>
+                        </form>
+                    </div>
+                    <div id="otpForm" style="display: none;">
+                        <p class="text-muted mb-4 text-center">Enter the 6-digit OTP from the right panel</p>
+                        <form id="verifyOtpForm">
+                            <div class="mb-3">
+                                <label for="otp" class="form-label fw-semibold">Enter OTP</label>
+                                <input type="text" class="form-control" id="otp" placeholder="6-digit OTP" maxlength="6">
+                                <p id="otpError" class="error-message">Invalid OTP. Try again!</p>
+                            </div>
+                            <button type="submit" class="login-btn">Verify OTP</button>
+                        </form>
+                        <div class="resend-link" id="resendOtp">
+                            <span class="fw-semibold">Resend OTP</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Modern Connectivity</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="Style/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed top-0 w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+                </div>
+                <button id="menu-toggle" class="sm:hidden text-gray-600 focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+                <div class="hidden sm:flex items-center space-x-8">
+                    <a href="/index.html" class="text-blue-600 hover:text-blue-600 transition">Home</a>
+                    <a href="/customer/guestPlans.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+                    <a href="/customer/recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+                    <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+                    <div id="accountDropdown" class="relative">
+                        <button id="accountDropdownButton" class="flex items-center text-gray-600 hover:text-blue-600 transition">
+                            <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="/customer/login.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 flex items-center">
+                                <svg class="h-5 w-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                                </svg>
+                                Customer Login
+                            </a>
+                            <a href="/admin/adminlogin.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 flex items-center">
+                                <svg class="h-5 w-5 mr-2 text-blue-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                                Administrator Login
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu" class="hidden sm:hidden flex flex-col space-y-2 py-4">
+                <!-- Mobile menu items -->
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-gradient pt-24 pb-12 md:pt-32 md:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center justify-center text-center">
+                <div class="max-w-xl text-white mb-8 w-full px-4 sm:px-0">
+                    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 slide-in">Experience Next-Gen Connectivity</h1>
+                    <p class="text-lg sm:text-xl mb-8 opacity-90 slide-in">High-speed data, instant recharge, and transparent pricing.</p>
+                    <div class="relative slide-in w-full max-w-md mx-auto">
+                        <input type="text" id="mobileNumber" placeholder="Enter Mobile Number" class="w-full px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-blue-400" maxlength="10">
+                        <p id="formatErrorMessage" class="text-red-200 text-sm mt-1 hidden text-left">Please enter a valid 10-digit number</p>
+                        <p id="mobiCommErrorMessage" class="text-red-200 text-sm mt-1 hidden text-left">Please enter a valid Mobi-Comm number</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Features Section -->
+    <div class="py-12 md:py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-2xl sm:text-3xl font-bold text-center mb-8 md:mb-12 bg-gradient-to-r from-blue-600 to-purple-500 text-transparent bg-clip-text">Why Choose Mobi-Comm?</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4">
+                        <img src="/assets/fastnetwork.png" alt="5G Icon" class="feature-icon w-full h-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Lightning Fast 5G</h3>
+                    <p class="text-gray-600">Experience blazing-fast speeds with our nationwide 5G network coverage.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4">
+                        <img src="/assets/security.png" alt="Security Icon" class="feature-icon w-full h-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">Secure Transactions</h3>
+                    <p class="text-gray-600">Bank-grade security for all your payments and personal information.</p>
+                </div>
+                <div class="feature-card bg-white p-6 rounded-xl shadow-lg text-center">
+                    <div class="w-16 h-16 mx-auto mb-4">
+                        <img src="/assets/24 support.png" alt="Support Icon" class="feature-icon w-full h-full">
+                    </div>
+                    <h3 class="text-xl font-semibold mb-2">24/7 Support</h3>
+                    <p class="text-gray-600">Round-the-clock customer support to assist you anytime, anywhere.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Support Section -->
+    <div class="bg-gray-50 py-12 md:py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl font-bold mb-4 sm:mb-8">Need Help?</h2>
+            <p class="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8">Our support team is available 24/7 to assist you with any queries</p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <button class="button w-full sm:w-auto" onclick="window.location.href='customer/support.html'">
+                    Contact Support
+                </button>                
+                <a href="customer/support.html#faq-section" class="button w-full sm:w-auto">View FAQs</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Mobi-Comm</h3>
+                    <p class="text-gray-300 text-sm">Connecting people through innovative telecommunication solutions since 2024.</p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="/customer/plans.html" class="text-gray-300 hover:text-white transition">Plans & Pricing</a></li>
+                        <li><a href="/customer/support.html" class="text-gray-300 hover:text-white transition">Support</a></li>
+                        <li><a href="/customer/recharge.html" class="text-gray-300 hover:text-white transition">Recharge</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Connect With Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-gray-300 hover:text-white transition">
+                            <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 2C6.477 2 2 6.477 2 12c0 5.523 4.477 10 10 10s10-4.477 10-10c0-5.523-4.477-10-10-10zm3.11 8.295c.001.12.002.24.002.362 0 3.67-2.795 7.9-7.902 7.9a7.85 7.85 0 01-4.249-1.245c.218.026.436.038.658.038 1.29 0 2.477-.44 3.423-1.176a2.78 2.78 0 01-2.592-1.926c.172.034.348.051.529.051.255 0 .503-.035.739-.1a2.776 2.776 0 01-2.225-2.722v-.034c.375.207.803.332 1.258.346a2.774 2.774 0 01-.86-3.703 7.888 7.888 0 005.723 2.9 2.774 2.774 0 014.728-2.524 5.56 5.56 0 001.763-.673 2.785 2.785 0 01-1.22 1.534 5.56 5.56 0 001.593-.436 5.617 5.617 0 01-1.38 1.437z"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="mt-4 text-sm">
+                        <p>Customer Service: 1-800-MOBICOM</p>
+                        <p>Email: support@mobicomm.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-6 border-t border-gray-700 text-sm text-center text-gray-400">
+                <p>© 2025 Mobi-Comm Inc. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

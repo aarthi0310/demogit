@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Plans</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/plans.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+            </div>
+            <div class="flex items-center space-x-8 nav-links" id="navLinks">
+                <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                <a href="/customer/guestPlans.html" class="text-blue-600 font-medium">Plans</a>
+                <a href="/customer/recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+                <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+                <div class="dropdown relative" id="accountDropdown">
+                    <button class="flex items-center text-gray-600 hover:text-blue-600 transition" id="accountDropdownButton">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="login.html" class="block px-4 py-2 text-gray-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-150 flex items-center">
+                            <svg class="h-5 w-5 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
+                            </svg>
+                            Login
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hero-gradient pt-28 pb-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2">Find Your Perfect Plan</h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto px-4">Plans That Fit Your Lifestyle and Budget – Choose What's Best for You!</p>
+    </div>
+
+    <div class="max-w-6xl mx-auto px-4 -mt-6">
+        <div class="bg-white rounded-lg shadow-lg p-4 flex flex-wrap justify-center gap-2" id="filterContainer">
+            <button class="filter-button active px-4 py-2 rounded-md text-sm font-medium transition" data-filter="all">All Plans</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="popular"><i class="fas fa-fire mr-1"></i> Popular Plans</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="validity"><i class="fas fa-calendar-alt mr-1"></i> Validity Plans</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="data"><i class="fas fa-database mr-1"></i> Data Plans</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="unlimited"><i class="fas fa-infinity mr-1"></i> Unlimited Data</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="entertainment"><i class="fas fa-tv mr-1"></i> Entertainment</button>
+            <button class="filter-button px-4 py-2 rounded-md text-sm font-medium bg-gray-100 hover:bg-gray-200 transition" data-filter="international"><i class="fas fa-globe mr-1"></i> International</button>
+        </div>
+    </div>
+
+    <div class="content max-w-6xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+            <div class="overflow-x-auto">
+                <table class="min-w-full plans-table">
+                    <thead>
+                        <tr class="bg-blue-50 text-blue-800">
+                            <th class="py-3 px-4 text-left font-medium">Plan Details</th>
+                            <th class="py-3 px-4 text-center font-medium">Price</th>
+                            <th class="py-3 px-4 text-center font-medium">Data</th>
+                            <th class="py-3 px-4 text-center font-medium">Validity</th>
+                            <th class="py-3 px-4 text-center font-medium">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="plansTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="pagination flex justify-center items-center mt-4 space-x-2">
+        <button id="prevPage" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Previous</button>
+        <div id="paginationNumbers" class="flex space-x-1"></div>
+        <button id="nextPage" class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300">Next</button>
+    </div>
+
+    <script src="/scripts/plans.js"></script>
+</body>
+</html>

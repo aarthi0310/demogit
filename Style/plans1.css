@@ -1,0 +1,103 @@
+.hero-gradient { 
+    background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%); 
+}
+
+.selected-plan { 
+    border-color: #2563eb; 
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.5); 
+    background-color: #f0f9ff; 
+}
+
+.plan-row:hover { 
+    background-color: #f0f7ff; 
+}
+
+.filter-button { 
+    background-color: #ffffff; 
+    color: #1a365d; 
+}
+
+.filter-button.active, 
+.filter-button:hover { 
+    background-color: #2563eb; 
+    color: white; 
+}
+
+.hidden { 
+    display: none; 
+}
+
+.badge-popular { 
+    background-color: #ef4444; 
+    color: white; 
+}
+
+.dropdown-menu { 
+    display: none; 
+    position: absolute; 
+    right: 0; 
+    top: 100%; 
+    background-color: white; 
+    min-width: 160px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    border-radius: 0.5rem; 
+    margin-top: 0.5rem; 
+    z-index: 50; 
+}
+
+.dropdown-menu.show { 
+    display: block; 
+}
+
+/* Responsive Adjustments */
+@media (max-width: 640px) { /* Mobile */
+    .filter-button {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    .plans-table th, .plans-table td {
+        font-size: 0.875rem;
+        padding: 0.75rem 0.5rem;
+    }
+    .plans-table th:nth-child(3),
+    .plans-table td:nth-child(3) {
+        display: none; /* Hide Data column on mobile */
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 4rem;
+        left: 0;
+        background-color: white;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nav-links.show {
+        display: flex;
+    }
+}
+/* Mobile Adjustments */
+@media (max-width: 640px) {
+.plans-table {
+display: block;
+overflow-x: auto;
+}
+.plans-table th, .plans-table td {
+white-space: nowrap; /* Prevent text from wrapping */
+}
+}
+
+/* Tablet Adjustments */
+@media (min-width: 641px) and (max-width: 1023px) {
+.plans-table th, .plans-table td {
+font-size: 1rem; /* Slightly larger font for readability */
+}
+}
+
+/* Desktop Adjustments */
+@media (min-width: 1024px) {
+.nav-links {
+display: flex; /* Ensure nav links are displayed in a row */
+}
+}

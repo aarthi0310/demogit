@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/payment.css">
+    <!-- Include Razorpay Checkout.js -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="/index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+                </div>
+                <div class="flex items-center space-x-8 nav-links" id="navLinks">
+                    <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                    <a href="/customer/guestPlans.html" class="text-gray-600 hover:text-blue-600 transition">Plans</a>
+                    <a href="/customer/recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+                    <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+                </div>
+                <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+                    <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="hero-gradient pt-28 pb-12 text-center text-white">
+        <h1 class="text-4xl font-bold mb-2">Complete Your Payment</h1>
+        <p class="text-lg opacity-90 max-w-2xl mx-auto px-4">
+            Choose your preferred payment method to activate your plan
+        </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 py-8">
+        <div class="bg-white rounded-lg shadow-lg overflow-hidden mb-8">
+            <div class="p-6 border-b" id="selected-plan-container">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">Your Selected Plan</h2>
+                <div class="plan-highlight p-4 rounded-md">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <p class="text-gray-600 mb-1">Plan Name:</p>
+                            <p class="font-medium text-gray-800 text-lg" id="selected-plan-name">Loading...</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-1">Price:</p>
+                            <p class="font-bold text-blue-700 text-lg" id="selected-plan-price">Loading...</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-1">Data:</p>
+                            <p class="font-medium text-gray-800" id="selected-plan-data">Loading...</p>
+                        </div>
+                        <div>
+                            <p class="text-gray-600 mb-1">Validity:</p>
+                            <p class="font-medium text-gray-800" id="selected-plan-validity">Loading...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="p-6">
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Select Payment Method</h3>
+                <div class="grid grid-cols-1 md:grid-cols-1 gap-4 mb-6">
+                    <div class="payment-option border rounded-lg p-4 cursor-pointer transition-all duration-200 selected" data-payment="razorpay">
+                        <div class="flex items-center">
+                            <div class="bg-blue-50 rounded-full p-3 mr-3">
+                                <i class="fas fa-wallet text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-medium">Razorpay</h3>
+                                <p class="text-sm text-gray-600">Pay via UPI, Card, Net Banking, or Wallet</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="razorpayForm" class="payment-form rounded-lg border p-6 mb-6 active">
+                    <h3 class="text-lg font-medium mb-4">Pay using Razorpay</h3>
+                    <button id="rzp-button" onclick="initiateRazorpayPayment()" class="bg-blue-600 hover:bg-blue-700 text-white py-2 px-6 rounded-lg transition">
+                        Pay with Razorpay
+                    </button>
+                    <p id="razorpayError" class="text-red-500 text-sm mt-2 hidden"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center">
+            <a href="/customer/plans.html" class="text-blue-600 hover:text-blue-800 transition">
+                <i class="fas fa-arrow-left mr-1"></i> Return to Plans
+            </a>
+        </div>
+    </div>
+
+    <script src="/scripts/payment.js"></script>
+</body>
+</html>

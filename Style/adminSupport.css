@@ -1,0 +1,78 @@
+.sidebar-nav:hover {
+    background-color: #1e40af;
+    border-radius: 0.5rem;
+}
+.card-zoom:hover {
+    transform: scale(1.02);
+    transition: transform 0.2s ease-in-out;
+}
+.notification-badge {
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    overflow-y: auto;
+}
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+}
+.priority-high {
+    background-color: #FEE2E2;
+    color: #B91C1C;
+    border-left: 4px solid #B91C1C;
+}
+.priority-medium {
+    background-color: #FEF3C7;
+    color: #92400E;
+    border-left: 4px solid #92400E;
+}
+.priority-low {
+    background-color: #DBEAFE;
+    color: #1E40AF;
+    border-left: 4px solid #1E40AF;
+}
+.status-new {
+    background-color: #E0E7FF;
+    color: #4338CA;
+}
+.status-inprogress {
+    background-color: #FEF3C7;
+    color: #92400E;
+}
+.status-resolved {
+    background-color: #D1FAE5;
+    color: #047857;
+}
+.status-closed {
+    background-color: #E5E7EB;
+    color: #4B5563;
+}
+
+/* Mobile sidebar */
+@media (max-width: 768px) {
+    .mobile-sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .mobile-sidebar.active {
+        transform: translateX(0);
+    }
+}

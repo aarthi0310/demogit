@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MobiComm Admin Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="/Style/admin.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-left">
+            <h1>MobiComm!</h1>
+            <p>Manage your telecom services efficiently with our secure admin portal.</p>
+            <div class="copyright">© 2025 MobiComm. All rights reserved.</div>
+        </div>
+        <div class="login-right">
+            <div class="login-header">
+                <h1>Admin Portal</h1>
+                <p>Secure Access Control System</p>
+            </div><br>
+            <form id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminID">Administrator ID</label>
+                    <div class="input-field">
+                        <input type="text" id="adminID" name="adminID" placeholder="Enter Administrator ID">
+                    </div>
+                    <div id="adminIDError" class="error-message"></div>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <div class="input-field">
+                        <input type="password" id="password" name="password" placeholder="Enter your password">
+                    </div>
+                    <div id="passwordError" class="error-message"></div>
+                </div>
+                <button type="submit" class="login-button">Sign In</button>
+                <div id="loginSuccess" class="login-success">Authentication successful</div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/scripts/admin.js"></script>
+</body>
+</html>

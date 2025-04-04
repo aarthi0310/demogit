@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobi-Comm | Profile</title>
+    <link rel="stylesheet" href="/Style/profile.css">
+</head>
+<body class="bg-gray-50">
+    <nav class="bg-white shadow-lg fixed w-full z-50">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center h-16">
+            <div class="flex items-center">
+                <a href="index.html"><span class="text-xl font-bold text-blue-600">Mobi-Comm</span></a>
+            </div>
+            <div class="flex items-center space-x-8 nav-links" id="navLinks">
+                <a href="/index.html" class="text-gray-600 hover:text-blue-600 transition">Home</a>
+                <a href="/customer/guestPlans.html" class="text-blue-600 font-medium">Plans</a>
+                <a href="/customer/recharge.html" class="text-gray-600 hover:text-blue-600 transition">Recharge</a>
+                <a href="/customer/support.html" class="text-gray-600 hover:text-blue-600 transition">Support</a>
+                <div class="relative" id="accountDropdown">
+                    <button class="flex items-center text-gray-600 hover:text-blue-600 transition" id="accountDropdownButton">
+                        <svg class="h-6 w-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <svg class="h-4 w-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                    <div class="dropdown-menu" id="dropdownMenu">
+                        <a href="/index.html" class="block px-4 py-2 text-blue-600 hover:bg-blue-50 hover:text-blue-600 rounded-md transition-colors duration-150 flex items-center">
+                            <svg class="h-4 w-4 mr-2 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path>
+                            </svg>
+                            Logout
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <button class="mobile-menu-button md:hidden text-gray-600" id="mobileMenuButton">
+                <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <h1>My Profile</h1>
+        <p>Manage your account and view your current plan</p>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-grid">
+            <div class="profile-card">
+                <h2>Personal Information</h2>
+                <div id="viewMode">
+                    <div class="info-group">
+                        <p class="info-label">Name</p>
+                        <p class="info-value" id="profileName">Loading...</p>
+                    </div>
+                    <div class="info-group">
+                        <p class="info-label">Email</p>
+                        <p class="info-value" id="profileEmail">Loading...</p>
+                    </div>
+                    <div class="info-group">
+                        <p class="info-label">Phone Number</p>
+                        <p class="info-value" id="profilePhone">Loading...</p>
+                    </div>
+                    <button class="edit-button" id="editButton">Edit Profile</button>
+                </div>
+                <div id="editMode" class="hidden">
+                    <div class="info-group">
+                        <p class="info-label">Name</p>
+                        <input type="text" id="nameInput" readonly>
+                    </div>
+                    <div class="info-group">
+                        <p class="info-label">Email</p>
+                        <input type="email" id="emailInput">
+                    </div>
+                    <div class="info-group">
+                        <p class="info-label">Phone Number</p>
+                        <input type="tel" id="phoneInput" readonly>
+                    </div>
+                    <div class="button-group">
+                        <button class="save-button" id="saveButton">Save Changes</button>
+                        <button class="cancel-button" id="cancelButton">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-card">
+                <h2>Current Plan</h2>
+                <div class="info-group">
+                    <p class="info-label">Plan Name</p>
+                    <p class="info-value" id="planName">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <p class="info-label">Data</p>
+                    <p class="info-value" id="planData">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <p class="info-label">Validity</p>
+                    <p class="info-value" id="planValidity">Loading...</p>
+                </div>
+                <div class="info-group">
+                    <p class="info-label">Status</p>
+                    <span class="plan-badge" id="planStatus">Loading...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="/scripts/profile.js"></script>
+</body>
+</html>
